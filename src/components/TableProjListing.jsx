@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 import img1 from "../asset/2.jpg";
 import "./TableProjListing.css"
 import "bootstrap/dist/css/bootstrap.min.css";
