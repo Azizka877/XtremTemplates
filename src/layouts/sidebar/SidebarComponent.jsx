@@ -20,7 +20,7 @@ const SidebarComponent = ({ bgColor, activeLinkColor, activeLinkBgColor, colorOn
         borderRight: "1px solid rgba(0,0,0,0.1)"
       }}
     >
-      <div style={{ marginTop: "-15px", marginBottom: "13px" }}><img src={logo} alt="" /></div>
+      <div style={{ marginTop: "-15px", marginBottom: "13px", zIndex: "-9999px" }}><img src={logo} style={{ zIndex: "-9999px" }} alt="" /></div>
       <ResourceDataMap
         resourceData={links}
         resourceItem={ClonedSidebarItem}

@@ -40,6 +40,7 @@ const SidebarPaner = styled.div`
   background-color: #fff;
   transition: width 0.3s;
   z-index: 4;
+  overflow-x: hidden;//ajouter
 `;
 const MenuController = styled.div`
   position: absolute;
@@ -54,7 +55,7 @@ const MenuController = styled.div`
   justify-content: center;
   border: 2px solid #008fa0;
   cursor: pointer;
-  z-index: 3;
+  z-index: 6;
 `;
 const ContaintOutlet = styled.div`
   width: 100%;

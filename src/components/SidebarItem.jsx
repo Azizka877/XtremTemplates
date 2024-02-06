@@ -53,7 +53,7 @@ const SidebarItem = ({
         style={{
           position: "absolute",
           left: 45,
-          fontSize: 17,
+          fontSize: 15,
           width: "100%",
           margin: "auto 0"
         }}
