@@ -47,7 +47,7 @@ const SidebarPaner = styled.div`
 `;
 const SideMenuController = styled.div`
 position: absolute;
-top: 5px;
+top: 15px;
 // right: -30px;
 left: 200px;
 width: 25px;
@@ -128,7 +128,7 @@ const SpliTemplateScreen = ({ children }) => {
         {navbar}</NavbarPaner>
       <BodyContainer>
         <SidebarPaner openedMenu={openedMenu} ref={sidebarRef}>
-         <div className="d-flex">
+         <div className="d-flex mt-3">
          <img src={logo} alt="" />
         <SideMenuController onClick={handleResize}>
             {openedMenu ? (
