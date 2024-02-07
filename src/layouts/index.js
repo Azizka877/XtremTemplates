@@ -1,10 +1,13 @@
 import React, { useState } from "react";
 import { useRef } from "react";
 import { useMemo } from "react";
-import { AiOutlineArrowLeft, AiOutlineArrowRight } from "react-icons/ai";
+// import { FaAlignRight } from "react-icons/fa";
+import { FaAlignLeft, FaAlignRight } from "react-icons/fa";
 import useWindowDimensions from "../hooks/useWindowsDimention";
 import styled from "styled-components";
-// import "../index.scss"
+import logo from "../asset/xtremelogo.svg"
+// import "index.scss"
+// import { BiMenu } from "react-icons/bi";
 
 const Container = styled.div`
   width: 100%;
@@ -23,16 +26,16 @@ const NavbarPaner = styled.div`
   z-index: 2;
   padding: ${({ openedMenu, minViewPort }) =>
   openedMenu ?
-    "0px 0px 0 50px" :
+    "0px 0px 0 0px" :
     minViewPort ?
-      "0px 0px 0 60px" :
+      "0px 0px 0 0px" :
       "0px 0px 0 250px"};
 `;
 const BodyContainer = styled.div`
   display: flex;
 `;
 const SidebarPaner = styled.div`
-  width: ${({ openedMenu }) => (!openedMenu ? "250px" : "60px")};
+  width: ${({ openedMenu }) => (!openedMenu ? "250px" : "0px")};
   height: 100vh;
   position: fixed;
   top: 0px;
@@ -40,22 +43,38 @@ const SidebarPaner = styled.div`
   background-color: #fff;
   transition: width 0.3s;
   z-index: 4;
-  overflow-x: hidden;//ajouter
+  overflow-x: hidden
+`;
+const SideMenuController = styled.div`
+position: absolute;
+top: 5px;
+// right: -30px;
+left: 200px;
+width: 25px;
+height: 25px;
+background-color: #fff;
+border-radius: 50%;
+display: flex;
+align-items: center;
+justify-content: center;
+// border: 2px solid #008fa0;
+cursor: pointer;
+z-index: 3;
 `;
 const MenuController = styled.div`
   position: absolute;
-  top: 5px;
-  right: -10px;
+  top: 13px;
+  // right: -30px;
   width: 25px;
   height: 25px;
-  background-color: #fff;
-  border-radius: 50%;
+  // background-color: #0284c7;
+  // border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  border: 2px solid #008fa0;
+  // border: 2px solid #008fa0;
   cursor: pointer;
-  z-index: 6;
+  z-index: 3;
 `;
 const ContaintOutlet = styled.div`
   width: 100%;
@@ -67,9 +86,9 @@ const ContaintOutlet = styled.div`
   z-index: 1;
   padding: ${({ openedMenu, minViewPort }) =>
   openedMenu ?
-    "70px 10px 0 70px" :
+    "70px 10px 0 0px" :
     minViewPort ?
-      "70px 10px 0 70px" :
+      "70px 10px 0 0px" :
       "70px 10px 0 270px"};
 `;
 
@@ -98,16 +117,27 @@ const SpliTemplateScreen = ({ children }) => {
 
   return (
     <Container>
-      <NavbarPaner openedMenu={openedMenu} minViewPort={minViewPort}>{navbar}</NavbarPaner>
+      <NavbarPaner MenuController={MenuController} handleResize={handleResize} openedMenu={openedMenu} minViewPort={minViewPort}>
+       { openedMenu ? (<MenuController onClick={handleResize}>
+            {openedMenu ? (
+              <FaAlignLeft style={{ width: "80px", height: "80px" }} className="menu-controller-icon" />
+            ) : (
+              <FaAlignRight className="menu-controller-icon" />
+            )}
+         </MenuController>): ("")}
+        {navbar}</NavbarPaner>
       <BodyContainer>
         <SidebarPaner openedMenu={openedMenu} ref={sidebarRef}>
-          <MenuController onClick={handleResize}>
+         <div className="d-flex">
+         <img src={logo} alt="" />
+        <SideMenuController onClick={handleResize}>
             {openedMenu ? (
-              <AiOutlineArrowRight className="menu-controller-icon" />
+              <FaAlignLeft className="menu-controller-icon" />
             ) : (
-              <AiOutlineArrowLeft className="menu-controller-icon" />
+              <FaAlignRight className="menu-controller-icon" />
             )}
-          </MenuController>
+         </SideMenuController>
+         </div>
           {sidebar}
         </SidebarPaner>
         <ContaintOutlet openedMenu={openedMenu} minViewPort={minViewPort}>

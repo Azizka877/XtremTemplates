@@ -2,7 +2,7 @@ import React, { cloneElement } from "react";
 import SidebarItem from "../../components/SidebarItem";
 import ResourceDataMap from "../../components/ResourceDataMap";
 import { links } from "routes/navigation/sidebarLinks";
-import logo from "../../asset/xtremelogo.svg"
+// import logo from "../../asset/xtremelogo.svg"
 
 const SidebarComponent = ({ bgColor, activeLinkColor, activeLinkBgColor, colorOnHover, linkColor }) => {
   const ClonedSidebarItem = ({ linkItem }) => cloneElement(<SidebarItem linkItem={linkItem} />, {
@@ -20,7 +20,7 @@ const SidebarComponent = ({ bgColor, activeLinkColor, activeLinkBgColor, colorOn
         borderRight: "1px solid rgba(0,0,0,0.1)"
       }}
     >
-      <div style={{ marginTop: "-15px", marginBottom: "13px", zIndex: "-9999px" }}><img src={logo} style={{ zIndex: "-9999px" }} alt="" /></div>
+      {/* <div style={{ marginTop: "-15px", marginBottom: "13px", zIndex: "-9999px" }}><img src={logo} alt="" /></div> */}
       <ResourceDataMap
         resourceData={links}
         resourceItem={ClonedSidebarItem}
