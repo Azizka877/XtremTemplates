@@ -5,6 +5,7 @@ import "./navbarComponent.css"
 // import UserDropdown from "./Dropdown";
 // import Navbaro from "./Navbar";
 import { BsThreeDots } from "react-icons/bs";
+import MenuAlignEndExample from "./Dropdown";
 
 function NavbarComponent({ bgColor, navbarContainerStyles }) {
   return (
@@ -33,7 +34,7 @@ function NavbarComponent({ bgColor, navbarContainerStyles }) {
                     <a className="nav-link active" aria-current="page" href="#">About</a>
                 </li>
                 <li className="nav-item">
-                    <a className="nav-link" href="#">DDMenu</a>
+                    <MenuAlignEndExample/>
                 </li>
             </ul>
         </div>

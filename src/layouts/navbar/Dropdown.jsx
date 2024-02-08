@@ -1,95 +1,25 @@
+import Dropdown from "react-bootstrap/Dropdown";
+import DropdownButton from "react-bootstrap/DropdownButton";
 import React from "react";
-import { createPopper } from "@popperjs/core";
-import UserImage from "../../asset/2.jpg";
-import "bootstrap/dist/css/bootstrap.min.css";
 
-const UserDropdown = () => {
-  // dropdown props
-  const [dropdownPopoverShow, setDropdownPopoverShow] = React.useState(false);
-  const btnDropdownRef = React.createRef();
-  const popoverDropdownRef = React.createRef();
-  const openDropdownPopover = () => {
-    createPopper(btnDropdownRef.current, popoverDropdownRef.current, {
-      placement: "bottom-start",
-    });
-    setDropdownPopoverShow(true);
-  };
-  const closeDropdownPopover = () => {
-    setDropdownPopoverShow(false);
-  };
+function MenuAlignEndExample() {
   return (
     <>
-      <a
-        className="text-blueGray-500 block"
-        href="#pablo"
-        ref={btnDropdownRef}
-        onClick={(e) => {
-          e.preventDefault();
-          dropdownPopoverShow ? closeDropdownPopover() : openDropdownPopover();
-        }}
-      >
-        <div className="items-center flex">
-          <span className="w-25 h-25 text-sm text-white bg-blueGray-200 inline-flex items-center justify-center rounded-full">
-            <img
-              alt="..."
-              className="w-full rounded-full align-middle border-7 shadow-lg"
-              src={UserImage}
-              ref={btnDropdownRef}
-              onClick={(e) => {
-                e.preventDefault();
-                dropdownPopoverShow ? closeDropdownPopover() : openDropdownPopover();
-              }}
-            />
-          </span>
-        </div>
-      </a>
-      <div
-        ref={popoverDropdownRef}
-        className={
-          (dropdownPopoverShow ? "block " : "hidden ") +
-          "bg-white text-base z-50 float-left py-2 list-none text-left rounded shadow-lg min-w-48"
-        }
-      >
-        <a
-          href="#pablo"
-          className={
-            "text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-black"
-          }
-          onClick={(e) => e.preventDefault()}
-        >
-          Action
-        </a>
-        <a
-          href="#pablo"
-          className={
-            "text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-black"
-          }
-          onClick={(e) => e.preventDefault()}
-        >
-          Another action
-        </a>
-        <a
-          href="#pablo"
-          className={
-            "text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-black"
-          }
-          onClick={(e) => e.preventDefault()}
-        >
-          Something else here
-        </a>
-        <div className="h-0 my-2 border border-solid border-blueGray-100" />
-        <a
-          href="#pablo"
-          className={
-            "text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-black"
-          }
-          onClick={(e) => e.preventDefault()}
-        >
-          Seprated link
-        </a>
-      </div>
+    {
+    <DropdownButton
+      align="end"
+      title="DDMenu"
+      id="dropdown-menu-align-end"
+    >
+      <Dropdown.Item eventKey="1">Action</Dropdown.Item>
+      <Dropdown.Item eventKey="2">Another action</Dropdown.Item>
+      <Dropdown.Item eventKey="3">Something else here</Dropdown.Item>
+      <Dropdown.Divider />
+      <Dropdown.Item eventKey="4">Separated link</Dropdown.Item>
+    </DropdownButton>
+    }
     </>
   );
-};
+}
 
-export default UserDropdown;
+export default MenuAlignEndExample;
